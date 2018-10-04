@@ -47,6 +47,14 @@ public class City {
 		connectedCities.add(city);
 	}
 
+	public int getConnectionsNum() {
+		return connectedCities.size();
+	}
+	
+	public void removeConnection(City city) {
+		connectedCities.remove(city);
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -77,9 +85,13 @@ public class City {
 			return false;
 		return true;
 	}
-	
-	public int neighboorsNumber() {
-		return connectedCities.size();
-	}
 
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("City [index=").append(index).append(", isUnified=").append(isUnified)
+				.append(", connectedCities=").append(connectedCities).append("]");
+		return builder.toString();
+	}
+	
 }

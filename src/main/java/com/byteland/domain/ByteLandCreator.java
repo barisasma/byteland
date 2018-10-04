@@ -39,7 +39,7 @@ public class ByteLandCreator {
 			Integer connectedCityIndex = roadList.get(city.getIndex());
 			City connectedCity = cities.get(connectedCityIndex);
 			if(!city.equals(connectedCity)) {//exceptional case for zero index city
-				linktTwoCity(city, connectedCity); //add city to its collections
+				//linktTwoCity(city, connectedCity); //add city to its collections
 				linktTwoCity(connectedCity,city); //make link to connected city
 			}
 		}
