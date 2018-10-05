@@ -10,16 +10,16 @@ public class ByteLandCreator {
 	private int cityNumber;
 	private List<Integer> roadList;
 	
-	public ByteLandCreator(int cityNumber, int[] roads) {
+	public ByteLandCreator(int cityNumber, String[] roads) {
 		this.cityNumber = cityNumber;
 		this.roadList = arrangeProperRoads(roads);
 	}
 	
-	private List<Integer> arrangeProperRoads(int[] roads) {
+	private List<Integer> arrangeProperRoads(String[] roads) {
 		List<Integer> properRoads = new ArrayList<>();
 		properRoads.add(Integer.valueOf(0));
 		for (int i = 0; i < roads.length; i++) {
-			properRoads.add(roads[i]);
+			properRoads.add(Integer.valueOf(roads[i]));
 		}
 		return properRoads;
 	}
@@ -39,7 +39,6 @@ public class ByteLandCreator {
 			Integer connectedCityIndex = roadList.get(city.getIndex());
 			City connectedCity = cities.get(connectedCityIndex);
 			if(!city.equals(connectedCity)) {//exceptional case for zero index city
-				//linktTwoCity(city, connectedCity); //add city to its collections
 				linktTwoCity(connectedCity,city); //make link to connected city
 			}
 		}
