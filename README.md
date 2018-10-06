@@ -8,7 +8,7 @@ City1 has City2<br />
 City2 has City3<br />
 City3 has no connection.<br />
 <br />
-2- Iterate through cities, unite city with a city which has the lowest possible connection.<br />
+2- Iterate through cities, unite city with a city which has the lowest possible connections.<br />
 Apply unification process by removing city from its parent. <br />
 However, if removed(united) city has any connections, append them to parent city.<br />
 For example, In the first step, City0 has only one connection which is City1. That's why, remove <br />
