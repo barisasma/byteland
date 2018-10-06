@@ -20,11 +20,23 @@ public class ByteLandTest {
 		ByteLandCreator creator = new ByteLandCreator(numberOfCities, roadMap);
 		List<City> createdCities = creator.createCities();
 		StateCreator unifier = new StateCreator();
-		Assert.assertEquals(2, unifier.unifyCities(createdCities).intValue());
+		Assert.assertEquals(2, unifier.calculateUnificationSteps(createdCities).intValue());
 	}
 	
 	@Test
 	public void test2() {
+		//8
+		//0 1 2 0 0 3 3
+		int numberOfCities = 8;
+		String[] roadMap  = { "0", "1", "2", "0", "0", "3", "3" };
+		ByteLandCreator creator = new ByteLandCreator(numberOfCities, roadMap);
+		List<City> createdCities = creator.createCities();
+		StateCreator unifier = new StateCreator();
+		Assert.assertEquals(4, unifier.calculateUnificationSteps(createdCities).intValue());
+	}
+	
+	@Test
+	public void test3() {
 		// 9
 		// 0 1 1 1 1 0 2 2
 		int numberOfCities = 9;
@@ -35,20 +47,7 @@ public class ByteLandTest {
 		Assert.assertEquals(2, createdCities.get(0).getConnectedCities().size());
 		Assert.assertEquals(2, createdCities.get(2).getConnectedCities().size());
 		StateCreator unifier = new StateCreator();
-		Assert.assertEquals(5, unifier.unifyCities(createdCities).intValue());
-	}
-	
-	
-	@Test
-	public void test3() {
-		//8
-		//0 1 2 0 0 3 3
-		int numberOfCities = 8;
-		String[] roadMap  = { "0", "1", "2", "0", "0", "3", "3" };
-		ByteLandCreator creator = new ByteLandCreator(numberOfCities, roadMap);
-		List<City> createdCities = creator.createCities();
-		StateCreator unifier = new StateCreator();
-		Assert.assertEquals(4, unifier.unifyCities(createdCities).intValue());
+		Assert.assertEquals(5, unifier.calculateUnificationSteps(createdCities).intValue());
 	}
 	
 	@Test
@@ -60,7 +59,7 @@ public class ByteLandTest {
 		ByteLandCreator creator = new ByteLandCreator(numberOfCities, roadMap);
 		List<City> createdCities = creator.createCities();
 		StateCreator unifier = new StateCreator();
-		Assert.assertEquals(4, unifier.unifyCities(createdCities).intValue());
+		Assert.assertEquals(4, unifier.calculateUnificationSteps(createdCities).intValue());
 	}
 	
 	

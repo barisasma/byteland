@@ -25,12 +25,17 @@ public class ByteLandCreator {
 	}
 
 	public List<City> createCities() {
+		List<City> cities = getCitiesFromNumber();
+		makeCityConnections(cities);
+		return cities;
+	}
+
+	private List<City> getCitiesFromNumber() {
 		List<City> cities = new ArrayList<>();
 		for (int i = 0; i < cityNumber; i++) {
 			City city = new City(i,false);
 			cities.add(city);
 		}
-		makeCityConnections(cities);
 		return cities;
 	}
 
@@ -39,13 +44,13 @@ public class ByteLandCreator {
 			Integer connectedCityIndex = roadList.get(city.getIndex());
 			City connectedCity = cities.get(connectedCityIndex);
 			if(!city.equals(connectedCity)) {//exceptional case for zero index city
-				linktTwoCity(connectedCity,city); //make link to connected city
+				addCityToParent(connectedCity,city); //make link to connected city
 			}
 		}
 	}
 
-	private void linktTwoCity(City city, City connectedCity) {
-		city.addConnectedCity(connectedCity);
+	private void addCityToParent(City parentCity, City subCity) {
+		parentCity.addConnectedCity(subCity);
 	}
 
 }

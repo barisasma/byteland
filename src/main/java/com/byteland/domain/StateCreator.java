@@ -15,17 +15,17 @@ public class StateCreator {
 		counter = Integer.valueOf(0);
 	}
 	
-	public Integer unifyCities(List<City> cityList) {
-		unifyCityStepByStep(cityList, counter);
+	public Integer calculateUnificationSteps(List<City> cityList) {
+		uniteCityStepByStep(cityList);
 		return counter;
 	}
 
-	private void unifyCityStepByStep(List<City> cityList, Integer counter) {
+	private void uniteCityStepByStep(List<City> cityList) {
 		if (cityList.get(0).getConnectedCities().isEmpty())
 			return;
 		List<City> newMergeList = mergeCityAndGetNewCityList(cityList);
 		incrementCounter();
-		unifyCityStepByStep(newMergeList, this.counter);
+		uniteCityStepByStep(newMergeList);
 	}
 
 	private void incrementCounter() {
@@ -47,7 +47,7 @@ public class StateCreator {
 		}
 	}
 	
-	private static void mergeCity(City city) {
+	private void mergeCity(City city) {
 		Optional<City> findLowestElementOp = findCityHasLeastConnection(city);//always merge with city which has lowest connections.
 		if(findLowestElementOp.isPresent()) {
 			City cityHasLeastConnection = findLowestElementOp.get();
@@ -56,7 +56,7 @@ public class StateCreator {
 		}
 	}
 	
-	private static Optional<City> findCityHasLeastConnection(City city) {
+	private Optional<City> findCityHasLeastConnection(City city) {
 		return city.getConnectedCities().stream().min(Comparator.comparing(City::getConnectionsNum));
 	}
 

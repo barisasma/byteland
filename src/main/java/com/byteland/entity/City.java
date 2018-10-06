@@ -27,10 +27,6 @@ public class City {
 		return isUnified;
 	}
 
-//	public boolean isNotUnified() {
-//		return !isUnified;
-//	}
-//	
 	public void setUnified(boolean isUnified) {
 		this.isUnified = isUnified;
 	}

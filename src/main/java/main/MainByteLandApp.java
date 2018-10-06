@@ -13,16 +13,12 @@ public class MainByteLandApp {
 
 	private static final Logger logger = Logger.getLogger(MainByteLandApp.class.getName());
 
-	public static void main(String[] args) {
-
+	public static void main(String[] args) throws IOException {
 		try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
 			System.out.println("Enter Number of Test Cases: ");
 			String readLine = reader.readLine();
 			startTestCases(readLine, reader);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
+		} 
 	}
 
 	private static void startTestCases(String readLine, BufferedReader reader) throws IOException {
@@ -40,7 +36,7 @@ public class MainByteLandApp {
 	}
 
 	private static void enterRoadsAndCalculateSteps(Integer cityNumberInt, BufferedReader reader) throws IOException {
-		System.out.println("Enter roads: (k-1) ");
+		System.out.println("Enter roads: (cityNumber-1) ");
 		String readLine = reader.readLine();
 		String[] roads = readLine.split(" ");
 		if (roads.length != cityNumberInt - 1) {
@@ -53,7 +49,7 @@ public class MainByteLandApp {
 		ByteLandCreator creator = new ByteLandCreator(cityNumberInt, roads);
 		List<City> createdCities = creator.createCities();
 		StateCreator unifier = new StateCreator();
-		Integer steps = unifier.unifyCities(createdCities);
+		Integer steps = unifier.calculateUnificationSteps(createdCities);
 		System.out.println(steps);
 	}
 
