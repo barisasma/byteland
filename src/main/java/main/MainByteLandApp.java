@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.List;
 import java.util.logging.Logger;
 import com.byteland.domain.ByteLandCreator;
-import com.byteland.domain.StateCreator;
+import com.byteland.domain.StateUnification;
 import com.byteland.entity.City;
 
 public class MainByteLandApp {
@@ -48,7 +48,7 @@ public class MainByteLandApp {
 	private static void calculateSteps(Integer cityNumberInt, String[] roads) {
 		ByteLandCreator creator = new ByteLandCreator(cityNumberInt, roads);
 		List<City> createdCities = creator.createCities();
-		StateCreator unifier = new StateCreator();
+		StateUnification unifier = new StateUnification();
 		Integer steps = unifier.calculateUnificationSteps(createdCities);
 		System.out.println(steps);
 	}

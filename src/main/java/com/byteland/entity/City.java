@@ -3,9 +3,9 @@ package com.byteland.entity;
 import java.util.ArrayList;
 import java.util.List;
 
-public class City {
+public final class City {
 
-	private int index;
+	private final int index;
 	private boolean isUnified;
 	private List<City> connectedCities;
 
@@ -17,10 +17,6 @@ public class City {
 
 	public int getIndex() {
 		return index;
-	}
-
-	public void setIndex(int index) {
-		this.index = index;
 	}
 
 	public boolean isUnified() {

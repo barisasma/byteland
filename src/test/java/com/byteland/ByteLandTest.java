@@ -6,7 +6,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import com.byteland.domain.ByteLandCreator;
-import com.byteland.domain.StateCreator;
+import com.byteland.domain.StateUnification;
 import com.byteland.entity.City;
 
 public class ByteLandTest {
@@ -19,7 +19,7 @@ public class ByteLandTest {
 		String[] roadMap = { "0", "1", "2" };
 		ByteLandCreator creator = new ByteLandCreator(numberOfCities, roadMap);
 		List<City> createdCities = creator.createCities();
-		StateCreator unifier = new StateCreator();
+		StateUnification unifier = new StateUnification();
 		Assert.assertEquals(2, unifier.calculateUnificationSteps(createdCities).intValue());
 	}
 	
@@ -31,7 +31,7 @@ public class ByteLandTest {
 		String[] roadMap  = { "0", "1", "2", "0", "0", "3", "3" };
 		ByteLandCreator creator = new ByteLandCreator(numberOfCities, roadMap);
 		List<City> createdCities = creator.createCities();
-		StateCreator unifier = new StateCreator();
+		StateUnification unifier = new StateUnification();
 		Assert.assertEquals(4, unifier.calculateUnificationSteps(createdCities).intValue());
 	}
 	
@@ -46,7 +46,7 @@ public class ByteLandTest {
 		Assert.assertEquals(4, createdCities.get(1).getConnectedCities().size());
 		Assert.assertEquals(2, createdCities.get(0).getConnectedCities().size());
 		Assert.assertEquals(2, createdCities.get(2).getConnectedCities().size());
-		StateCreator unifier = new StateCreator();
+		StateUnification unifier = new StateUnification();
 		Assert.assertEquals(5, unifier.calculateUnificationSteps(createdCities).intValue());
 	}
 	
@@ -58,7 +58,7 @@ public class ByteLandTest {
 		String[] roadMap = { "0", "1", "1", "3", "3", "5", "6", "0", "8", "8", "10" };
 		ByteLandCreator creator = new ByteLandCreator(numberOfCities, roadMap);
 		List<City> createdCities = creator.createCities();
-		StateCreator unifier = new StateCreator();
+		StateUnification unifier = new StateUnification();
 		Assert.assertEquals(4, unifier.calculateUnificationSteps(createdCities).intValue());
 	}
 	
